@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-
-interface Address {
-  street: string[];
-  suburb: string;
-  postcode?: number;
-  state: string;
-}
+import { BusinessCard } from "./BusinessCard";
+import { Address } from "./types";
 
 interface FieldProps {
   label: string;
@@ -91,38 +86,24 @@ const AddressForm = ({ address, setAddress }: { address: Address; setAddress: (a
   </form>
 );
 
-interface BusinessCardProps {
-  address: Address;
-  phoneNumber?: number;
-}
-
-const BusinessCard: React.FC<BusinessCardProps> = ({ address, phoneNumber }) => (
-  <section>
-    <h1>Business Card</h1>
-    {address.street.map((line, idx) => <div key={idx}>{line}</div>)}
-    {address.suburb} {address.state} {address.postcode}
-    <p>{phoneNumber}</p>
-  </section>
-);
-
-class App extends Component<{}, { address: Address; phoneNumber: number | undefined }> {
+class App extends Component<{}, { address: Address; phoneNumber: string }> {
   constructor(props: {}) {
     super(props);
 
     this.state = {
       address: {
-        street: ["1 John St"],
-        suburb: "",
-        state: "",
-        postcode: 0,
+        street: ["Unit 5", "23 Market St"],
+        suburb: "Sydney",
+        state: "NSW",
+        postcode: 2000,
       },
-      phoneNumber: undefined
+      phoneNumber: "(02) 9804 11234"
     };
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{ alignItems: "center", display: "flex", flexDirection: "column" }}>
         <BusinessCard address={this.state.address} phoneNumber={this.state.phoneNumber} />
         <hr />
         <AddressForm
@@ -134,7 +115,7 @@ class App extends Component<{}, { address: Address; phoneNumber: number | undefi
         <PhoneField
           label="Phone Number"
           value={this.state.phoneNumber}
-          onChange={value => this.setState({ phoneNumber: parseInt(value, 10) || undefined })}
+          onChange={value => this.setState({ phoneNumber: value })}
         />
       </div>
     );
