@@ -18,8 +18,8 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name,
 
       boxSizing: "border-box",
       padding: "30px",
-      width: "530px",
-      height: "317px"
+      width: "490px",
+      height: "280px"
     }}
   >
     <section
