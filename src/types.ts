@@ -4,3 +4,8 @@ export interface Address {
   postcode?: number;
   state: string;
 }
+
+export interface BusinessCardInfo {
+  address: Address;
+  phoneNumber: string;
+}
