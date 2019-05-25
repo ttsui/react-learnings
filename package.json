@@ -34,6 +34,8 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^1.9.2"
+    "jest-dom": "^3.4.0",
+    "prettier": "^1.9.2",
+    "react-testing-library": "^7.0.1"
   }
 }
