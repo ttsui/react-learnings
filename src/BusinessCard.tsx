@@ -5,10 +5,12 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name,
   <section
     style={{
       backgroundColor: "#fef5f0",
+      borderRadius: "5px",
+      boxShadow: "0 2px 1px rgba(0,0,0,.08)",
       color: "darkgray",
 
       fontFamily: "sans-serif",
-      fontSize: "13pt",
+      fontSize: "0.9em",
       fontWeight: "bold",
       fontVariant: "all-small-caps",
 
@@ -17,9 +19,10 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name,
       justifyContent: "space-between",
 
       boxSizing: "border-box",
-      padding: "30px",
-      width: "490px",
-      height: "280px"
+      padding: "1.5em",
+      margin: "20px",
+      width: "420px",
+      height: "240px"
     }}
   >
     <section
@@ -32,7 +35,7 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name,
       <h1
         style={{
           color: "#59504b",
-          fontSize: "25pt",
+          fontSize: "1.8em",
           marginBlockEnd: 0,
           marginBlockStart: 0
         }}
@@ -46,14 +49,7 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name,
       style={{
         display: "flex",
         alignItems: "flex-end",
-        flexDirection: "column",
-
-        color: "darkgray",
-
-        fontFamily: "sans-serif",
-        fontSize: "13pt",
-        fontWeight: "bold",
-        fontVariant: "all-small-caps"
+        flexDirection: "column"
       }}
     >
       <div>Call: {phoneNumber}</div>

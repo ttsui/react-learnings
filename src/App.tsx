@@ -19,7 +19,7 @@ class App extends Component<{}, BusinessCardInfo> {
       },
       phoneNumber: "(02) 9804 11234",
       email: "mariana@myestate.com",
-      website: "www.myestate.com",
+      website: "www.myestate.com"
     };
   }
 
@@ -30,7 +30,15 @@ class App extends Component<{}, BusinessCardInfo> {
     };
 
     return (
-      <div className="App" style={{ alignItems: "center", display: "flex", flexDirection: "column" }}>
+      <div
+        className="App"
+        style={{
+          backgroundColor: "rgb(235, 236, 237)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+      >
         <BusinessCard {...this.state} />
         <hr />
         <EntryForm {...this.state} onChange={handleFormChange} />
