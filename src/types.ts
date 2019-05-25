@@ -7,5 +7,9 @@ export interface Address {
 
 export interface BusinessCardInfo {
   address: Address;
-  phoneNumber: string;
+  email: string;
+  name: string;
+  phoneNumber?: string;
+  title?: string;
+  website?: string;
 }

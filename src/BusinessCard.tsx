@@ -1,7 +1,7 @@
 import React from "react";
 import { BusinessCardInfo } from "./types";
 
-export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, phoneNumber }) => (
+export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name, phoneNumber, title, website }) => (
   <section
     style={{
       backgroundColor: "#fef5f0",
@@ -36,7 +36,10 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, phoneNumber 
           marginBlockEnd: 0,
           marginBlockStart: 0
         }}
-      />
+      >
+        {name}
+      </h1>
+      <div>{title}</div>
     </section>
 
     <section
@@ -55,6 +58,10 @@ export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, phoneNumber 
     >
       <div>Call: {phoneNumber}</div>
       <div>Visit: {address.street.concat(address.suburb, address.state, String(address.postcode)).join(", ")}</div>
+      <div>
+        Email: <span style={{ fontVariant: "unset" }}>{email}</span>
+      </div>
+      <div>Click: {website}</div>
     </section>
   </section>
 );

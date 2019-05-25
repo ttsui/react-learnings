@@ -9,13 +9,17 @@ class App extends Component<{}, BusinessCardInfo> {
     super(props);
 
     this.state = {
+      name: "Mariana Napolitani",
+      title: "Broker",
       address: {
         street: ["Unit 5", "23 Market St"],
         suburb: "Sydney",
         state: "NSW",
         postcode: 2000
       },
-      phoneNumber: "(02) 9804 11234"
+      phoneNumber: "(02) 9804 11234",
+      email: "mariana@myestate.com",
+      website: "www.myestate.com",
     };
   }
 
@@ -27,7 +31,7 @@ class App extends Component<{}, BusinessCardInfo> {
 
     return (
       <div className="App" style={{ alignItems: "center", display: "flex", flexDirection: "column" }}>
-        <BusinessCard address={this.state.address} phoneNumber={this.state.phoneNumber} />
+        <BusinessCard {...this.state} />
         <hr />
         <EntryForm {...this.state} onChange={handleFormChange} />
       </div>
