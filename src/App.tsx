@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BusinessCard } from "./BusinessCard";
+import { BusinessCard } from "./components/BusinessCard";
 import { Address, BusinessCardInfo } from "./types";
-import { EntryForm } from "./EntryForm";
+import { BusinessCardForm } from "./components/BusinessCardForm";
 
 class App extends Component<{}, BusinessCardInfo> {
   constructor(props: {}) {
@@ -41,7 +41,7 @@ class App extends Component<{}, BusinessCardInfo> {
       >
         <BusinessCard {...this.state} />
         <hr />
-        <EntryForm {...this.state} onChange={handleFormChange} />
+        <BusinessCardForm {...this.state} onChange={handleFormChange} />
       </div>
     );
   }

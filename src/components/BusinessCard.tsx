@@ -1,5 +1,5 @@
 import React from "react";
-import { BusinessCardInfo } from "./types";
+import { BusinessCardInfo } from "../types";
 
 export const BusinessCard: React.FC<BusinessCardInfo> = ({ address, email, name, phoneNumber, title, website }) => (
   <section

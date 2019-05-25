@@ -5,6 +5,8 @@ export interface Address {
   state: string;
 }
 
+export type AddressValueTypes = string | number | Array<any> | undefined;
+
 export interface BusinessCardInfo {
   address: Address;
   email: string;
