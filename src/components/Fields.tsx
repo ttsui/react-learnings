@@ -20,14 +20,8 @@ const FormField: React.FC<FormFieldProps> = props => (
       marginBottom: "1em"
     }}
   >
-    <div
-      style={{
-        float: "left",
-        marginBottom: "0.25em"
-      }}
-    >
-      {props.label}
-    </div>
+    <div style={{ float: "left", marginBottom: "0.25em" }}>{props.label}</div>
+
     <div>
       <input
         type={props.type}
@@ -46,6 +40,6 @@ const FormField: React.FC<FormFieldProps> = props => (
   </label>
 );
 
-export const TextField: React.FC<FieldProps> = props => <FormField {...props} type="text" />;
-
 export const PhoneField: React.FC<FieldProps> = props => <FormField {...props} type="tel" />;
+
+export const TextField: React.FC<FieldProps> = props => <FormField {...props} type="text" />;

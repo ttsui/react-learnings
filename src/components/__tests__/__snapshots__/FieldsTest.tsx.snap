@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneField: renders 1`] = `
+<div>
+  <label
+    style="color: rgb(44, 44, 44); display: block; font-size: 1.35rem; font-family: 'Arial Narrow', sans-serif, sans-serif-condensed; margin-bottom: 1em;"
+  >
+    <div
+      style="float: left; margin-bottom: 0.25em;"
+    >
+      Name
+    </div>
+    <div>
+      <input
+        style="border: 1px solid #d5d5d5; border-radius: 3px; font-family: Arial, sans-serif; font-size: 18px; padding: 0.5em; width: 13em;"
+        type="tel"
+        value="(02) 1234 5678"
+      />
+    </div>
+  </label>
+</div>
+`;
+
+exports[`TextField: renders 1`] = `
+<div>
+  <label
+    style="color: rgb(44, 44, 44); display: block; font-size: 1.35rem; font-family: 'Arial Narrow', sans-serif, sans-serif-condensed; margin-bottom: 1em;"
+  >
+    <div
+      style="float: left; margin-bottom: 0.25em;"
+    >
+      Name
+    </div>
+    <div>
+      <input
+        style="border: 1px solid #d5d5d5; border-radius: 3px; font-family: Arial, sans-serif; font-size: 18px; padding: 0.5em; width: 13em;"
+        type="text"
+        value="John Doe"
+      />
+    </div>
+  </label>
+</div>
+`;
