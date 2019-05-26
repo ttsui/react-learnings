@@ -17,7 +17,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({ address, onChange }) =
   };
 
   return (
-    <div>
+    <fieldset style={{ border: "none" }}>
       <TextField label="Street line 1" value={address.street[0]} onChange={handleStreetChange(0)} />
 
       <TextField label="Street line 2" value={address.street[1]} onChange={handleStreetChange(1)} />
@@ -33,6 +33,6 @@ export const AddressForm: React.FC<AddressFormProps> = ({ address, onChange }) =
       />
 
       <TextField label="State" value={address.state} onChange={handleAddressFieldChange("state")} />
-    </div>
+    </fieldset>
   );
 };

@@ -24,6 +24,7 @@ const FormField: React.FC<FormFieldProps> = props => (
 
     <div>
       <input
+        name={props.label.toLowerCase().replace(/ /g, "-")}
         type={props.type}
         value={props.value}
         onChange={event => props.onChange(event.target.value)}
