@@ -3,13 +3,18 @@ import { Address, BusinessCardInfo } from "../types";
 import { PhoneField, TextField } from "./Fields";
 import { AddressForm } from "./AddressForm";
 
+export type BusinessCardFormChangeEventHandler = <K extends keyof BusinessCardInfo>(
+  field: K,
+  value: string | Address
+) => void;
+
 interface BusinessCardFormProps extends BusinessCardInfo {
-  onChange: <K extends keyof BusinessCardInfo>(field: K, value: string | Address) => void;
+  onChange: BusinessCardFormChangeEventHandler;
 }
 
 export class BusinessCardForm extends Component<BusinessCardFormProps> {
   render() {
-    const handleFieldChange = <K extends keyof BusinessCardInfo>(field: K) => (value: string | Address) =>
+    const changeFieldHandlerFor = <K extends keyof BusinessCardInfo>(field: K) => (value: string | Address) =>
       this.props.onChange(field, value);
 
     return (
@@ -21,11 +26,11 @@ export class BusinessCardForm extends Component<BusinessCardFormProps> {
         }}
       >
         <div>
-          <TextField label="Name" value={this.props.name} onChange={handleFieldChange("name")} />
-          <TextField label="Title" value={this.props.title} onChange={handleFieldChange("title")} />
-          <TextField label="Email" value={this.props.email} onChange={handleFieldChange("email")} />
-          <TextField label="Website" value={this.props.website} onChange={handleFieldChange("website")} />
-          <PhoneField label="Phone Number" value={this.props.phoneNumber} onChange={handleFieldChange("phoneNumber")} />
+          <TextField label="Name" value={this.props.name} onChange={changeFieldHandlerFor("name")} />
+          <TextField label="Title" value={this.props.title} onChange={changeFieldHandlerFor("title")} />
+          <TextField label="Email" value={this.props.email} onChange={changeFieldHandlerFor("email")} />
+          <TextField label="Website" value={this.props.website} onChange={changeFieldHandlerFor("website")} />
+          <PhoneField label="Phone Number" value={this.props.phoneNumber} onChange={changeFieldHandlerFor("phoneNumber")} />
         </div>
 
         <AddressForm
