@@ -50,3 +50,17 @@ global flag to replace all ocurrances.
 > "1 2 3".replace(/ /g, "-")
 '1-2-3'
 ```
+
+* LEARNING - Testing: react-test-renderer to quite useful testing onChange handlers as it allows an easy way to get the
+on change handler.
+Example:
+```javascript 1.8
+  const testRenderer = TestRenderer.create(<BusinessCardForm {...businessCard} onChange={handleChange} />);
+  const testInstance = testRenderer.root;
+
+  testInstance.findAllByType(TextField).forEach((field: any) => {
+    field.props.onChange(`A ${field.props.label} value`.toLowerCase());
+  });
+```
+
+
