@@ -1,14 +1,11 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BusinessCard } from "./components/BusinessCard";
 import { Address, BusinessCardInfo } from "./types";
 import { BusinessCardForm } from "./components/BusinessCardForm";
 
-class App extends Component<{}, BusinessCardInfo> {
-  constructor(props: {}) {
-    super(props);
-
-    this.state = {
+const App: React.FC<{}> =  () => {
+    const [state, setState] = useState({
       name: "Mariana Napolitani",
       title: "Broker",
       address: {
@@ -20,13 +17,11 @@ class App extends Component<{}, BusinessCardInfo> {
       phoneNumber: "(02) 9804 11234",
       email: "mariana@myestate.com",
       website: "www.myestate.com"
-    };
-  }
+    });
 
-  render() {
     const handleFormChange = <F extends keyof BusinessCardInfo>(field: F, value: string | Address) => {
       const newState: Pick<BusinessCardInfo, F> = { [field]: value };
-      this.setState(newState);
+      setState({...state, ...newState});
     };
 
     return (
@@ -39,12 +34,11 @@ class App extends Component<{}, BusinessCardInfo> {
           alignItems: "center"
         }}
       >
-        <BusinessCard {...this.state} />
+        <BusinessCard {...state} />
         <hr />
-        <BusinessCardForm {...this.state} onChange={handleFormChange} />
+        <BusinessCardForm {...state} onChange={handleFormChange} />
       </div>
     );
-  }
-}
+};
 
 export default App;
