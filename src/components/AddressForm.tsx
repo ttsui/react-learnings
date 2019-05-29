@@ -2,9 +2,11 @@ import React from "react";
 import { Address, AddressValueTypes } from "../types";
 import { TextField } from "./Fields";
 
+export type AddressChangeEventHandler = <K extends keyof Address>(field: K, value: AddressValueTypes) => void;
+
 interface AddressFormProps {
   address: Address;
-  onChange: <K extends keyof Address>(field: K, value: AddressValueTypes) => void;
+  onChange: AddressChangeEventHandler
 }
 
 export const AddressForm: React.FC<AddressFormProps> = ({ address, onChange }) => {
