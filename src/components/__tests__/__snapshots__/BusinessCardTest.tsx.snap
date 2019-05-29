@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders welcome message 1`] = `
+exports[`renders 1`] = `
 <div>
   <section
     style="background-color: rgb(254, 245, 240); border-radius: 5px; box-shadow: 0 2px 1px rgba(0,0,0,.08); color: darkgray; font-family: sans-serif; font-size: 0.9em; font-weight: bold; font-variant: all-small-caps; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; padding: 1.5em; margin: 20px; width: 420px; height: 240px;"
