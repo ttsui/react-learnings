@@ -1,12 +1,13 @@
 import React from "react";
 import { Address, AddressValueTypes } from "../types";
 import { TextField } from "./Fields";
+import { PostcodeField } from "./PostcodeField";
 
 export type AddressChangeEventHandler = <K extends keyof Address>(field: K, value: AddressValueTypes) => void;
 
 interface AddressFormProps {
   address: Address;
-  onChange: AddressChangeEventHandler
+  onChange: AddressChangeEventHandler;
 }
 
 export const AddressForm: React.FC<AddressFormProps> = ({ address, onChange }) => {
@@ -26,13 +27,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({ address, onChange }) =
 
       <TextField label="Suburb" value={address.suburb} onChange={handleAddressFieldChange("suburb")} />
 
-      <TextField
-        label="Postcode"
-        value={address.postcode}
-        onChange={value => {
-          onChange("postcode", Number(value));
-        }}
-      />
+      <PostcodeField value={address.postcode} onChange={handleAddressFieldChange("postcode")} />
 
       <TextField label="State" value={address.state} onChange={handleAddressFieldChange("state")} />
     </fieldset>
