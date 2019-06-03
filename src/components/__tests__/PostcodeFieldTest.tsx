@@ -15,10 +15,17 @@ it("calls onChange handler", () => {
   expect(changeHandler).toHaveBeenCalledWith(1234);
 });
 
-it("renders validation error message", () => {
-  const { container, getByLabelText } = render(<PostcodeField onChange={() => {}} />);
+describe("validation", () => {
+  test.each`
+    postcode    | validationMessage
+    ${"abcd"}   | ${"Postcode must only contain numbers"}
+    ${"123"}    | ${"Postcode must be four digits"}
+    ${"12345"}  | ${"Postcode must be four digits"}
+  `("validates $postcode as invalid", ({ postcode, validationMessage }) => {
+    const { container, getByLabelText } = render(<PostcodeField onChange={() => {}} />);
 
-  fireEvent.change(getByLabelText("Postcode"), { target: { value: "abcd" } });
+    fireEvent.change(getByLabelText("Postcode"), { target: { value: postcode } });
 
-  expect(container.querySelector(".t-field-validation-error")).toHaveTextContent("Invalid postcode");
+    expect(container.querySelector(".t-field-validation-error")).toHaveTextContent(validationMessage);
+  });
 });
