@@ -17,6 +17,14 @@ describe("PhoneField:", () => {
 
     expect(changeHandler).toHaveBeenCalledWith("(02) 1234 5678");
   });
+
+  it("renders validation error", () => {
+    const { container } = render(
+      <PhoneField label="Name" value="xxx" onChange={() => {}} validationMessage="Invalid number" />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
 });
 
 describe("TextField:", () => {
@@ -34,4 +42,13 @@ describe("TextField:", () => {
 
     expect(changeHandler).toHaveBeenCalledWith("Joan");
   });
+
+  it("renders validation error", () => {
+    const { container } = render(
+      <TextField label="Name" value="xxx" onChange={() => {}} validationMessage="Invalid value" />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
 });

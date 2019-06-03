@@ -22,6 +22,34 @@ exports[`PhoneField: renders 1`] = `
 </div>
 `;
 
+exports[`PhoneField: renders validation error 1`] = `
+<div>
+  <label
+    style="color: rgb(44, 44, 44); display: block; font-size: 1.35rem; font-family: 'Arial Narrow', sans-serif, sans-serif-condensed; margin-bottom: 1em;"
+  >
+    <div
+      style="float: left; margin-bottom: 0.25em;"
+    >
+      Name
+    </div>
+    <div>
+      <input
+        name="name"
+        style="border: 1px solid orangered; border-radius: 3px; font-family: Arial, sans-serif; font-size: 18px; padding: 0.5em; width: 13em;"
+        type="tel"
+        value="xxx"
+      />
+    </div>
+    <div
+      class="t-field-validation-error"
+      style="background-color: rgb(253, 240, 240); margin: 0px 3px; color: orangered; padding: 3px 0px; font-size: initial;"
+    >
+      Invalid number
+    </div>
+  </label>
+</div>
+`;
+
 exports[`TextField: renders 1`] = `
 <div>
   <label
@@ -39,6 +67,34 @@ exports[`TextField: renders 1`] = `
         type="text"
         value="John Doe"
       />
+    </div>
+  </label>
+</div>
+`;
+
+exports[`TextField: renders validation error 1`] = `
+<div>
+  <label
+    style="color: rgb(44, 44, 44); display: block; font-size: 1.35rem; font-family: 'Arial Narrow', sans-serif, sans-serif-condensed; margin-bottom: 1em;"
+  >
+    <div
+      style="float: left; margin-bottom: 0.25em;"
+    >
+      Name
+    </div>
+    <div>
+      <input
+        name="name"
+        style="border: 1px solid orangered; border-radius: 3px; font-family: Arial, sans-serif; font-size: 18px; padding: 0.5em; width: 13em;"
+        type="text"
+        value="xxx"
+      />
+    </div>
+    <div
+      class="t-field-validation-error"
+      style="background-color: rgb(253, 240, 240); margin: 0px 3px; color: orangered; padding: 3px 0px; font-size: initial;"
+    >
+      Invalid value
     </div>
   </label>
 </div>

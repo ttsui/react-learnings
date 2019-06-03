@@ -3,6 +3,7 @@ import React from "react";
 interface FieldProps {
   label: string;
   onChange: (value: string) => void;
+  validationMessage?: string;
   value?: string | number;
 }
 
@@ -29,7 +30,7 @@ const FormField: React.FC<FormFieldProps> = props => (
         value={props.value}
         onChange={event => props.onChange(event.target.value)}
         style={{
-          border: "1px solid #d5d5d5",
+          border: `1px solid ${props.validationMessage ? "orangered" : "#d5d5d5"}`,
           borderRadius: "3px",
           fontFamily: "Arial, sans-serif",
           fontSize: "18px",
@@ -38,6 +39,21 @@ const FormField: React.FC<FormFieldProps> = props => (
         }}
       />
     </div>
+
+    {props.validationMessage ? (
+      <div
+        className="t-field-validation-error"
+        style={{
+          backgroundColor: "#fdf0f0",
+          margin: "0 3px",
+          color: "orangered",
+          padding: "3px 0",
+          fontSize: "initial"
+        }}
+      >
+        {props.validationMessage}
+      </div>
+    ) : null}
   </label>
 );
 
