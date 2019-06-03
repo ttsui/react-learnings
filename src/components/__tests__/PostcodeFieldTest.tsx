@@ -14,3 +14,11 @@ it("calls onChange handler", () => {
 
   expect(changeHandler).toHaveBeenCalledWith(1234);
 });
+
+it("renders validation error message", () => {
+  const { container, getByLabelText } = render(<PostcodeField onChange={() => {}} />);
+
+  fireEvent.change(getByLabelText("Postcode"), { target: { value: "abcd" } });
+
+  expect(container.querySelector(".t-field-validation-error")).toHaveTextContent("Invalid postcode");
+});
