@@ -57,6 +57,14 @@ const FormField: React.FC<FormFieldProps> = props => (
   </label>
 );
 
+export const FormFieldForTesting: React.FC<FormFieldProps> = props => {
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("FormFieldForTesting is only for unit testing FormField behvaiour.");
+  }
+
+  return <FormField {...props} />;
+};
+
 export const PhoneField: React.FC<FieldProps> = props => <FormField {...props} type="tel" />;
 
 export const TextField: React.FC<FieldProps> = props => <FormField {...props} type="text" />;

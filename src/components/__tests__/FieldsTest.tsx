@@ -1,6 +1,25 @@
 import React from "react";
 import { fireEvent, render } from "react-testing-library";
-import { PhoneField, TextField } from "../Fields";
+import { FormFieldForTesting, PhoneField, TextField } from "../Fields";
+
+describe("FormField:", () => {
+  it("calls onChange handler", () => {
+    const changeHandler = jest.fn();
+    const { getByLabelText } = render(<FormFieldForTesting type="text" label="Name" onChange={changeHandler} />);
+
+    fireEvent.change(getByLabelText("Name"), { target: { value: "Joan" } });
+
+    expect(changeHandler).toHaveBeenCalledWith("Joan");
+  });
+
+  it("renders validation error", () => {
+    const { container } = render(
+      <FormFieldForTesting type="text" label="Name" value="xxx" onChange={() => {}} validationMessage="Invalid value" />
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+});
 
 describe("PhoneField:", () => {
   it("renders", () => {
@@ -16,14 +35,6 @@ describe("PhoneField:", () => {
     fireEvent.change(getByLabelText("Name"), { target: { value: "(02) 1234 5678" } });
 
     expect(changeHandler).toHaveBeenCalledWith("(02) 1234 5678");
-  });
-
-  it("renders validation error", () => {
-    const { container } = render(
-      <PhoneField label="Name" value="xxx" onChange={() => {}} validationMessage="Invalid number" />
-    );
-
-    expect(container).toMatchSnapshot();
   });
 });
 
@@ -42,13 +53,4 @@ describe("TextField:", () => {
 
     expect(changeHandler).toHaveBeenCalledWith("Joan");
   });
-
-  it("renders validation error", () => {
-    const { container } = render(
-      <TextField label="Name" value="xxx" onChange={() => {}} validationMessage="Invalid value" />
-    );
-
-    expect(container).toMatchSnapshot();
-  });
-
 });
