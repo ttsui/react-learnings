@@ -19,6 +19,20 @@ describe("FormField:", () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  describe("onBlur:", () => {
+    it("calls onChange handler with value trimed of whitespace", () => {
+      const changeHandler = jest.fn();
+      const { getByLabelText } = render(
+        <FormFieldForTesting type="text" label="Name" value="  Joan Doe  " onChange={changeHandler} />
+      );
+
+      let field = getByLabelText("Name");
+      fireEvent.blur(field);
+
+      expect(changeHandler).toHaveBeenCalledWith("Joan Doe");
+    });
+  });
 });
 
 describe("PhoneField:", () => {
